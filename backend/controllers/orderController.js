@@ -4,7 +4,7 @@ exports.placeOrder = async (req, res) => {
   try {
     const { product } = req.body;
     const order = new Order({
-      customerName: req.user.id, // User ID from auth middleware
+      customerName: req.user.id,
       product,
     });
     await order.save();
