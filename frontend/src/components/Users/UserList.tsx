@@ -9,7 +9,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 type User = {
-  id: string;
+  _id: string;
   name: string;
   email: string;
   role: string;
@@ -17,11 +17,11 @@ type User = {
 
 type UserListProps = {
   users: User[];
-  onDelete: (id: string) => void;
+  onDelete: (_id: string) => void;
 };
 
 const UserList = ({ users, onDelete }: UserListProps) => {
-  console.log("users ", users);
+  // console.log("users ", users);
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [editingUser, setEditingUser] = useState<User | null>(null);
@@ -31,11 +31,11 @@ const UserList = ({ users, onDelete }: UserListProps) => {
     setOpen(true);
   };
 
-  async function handleCreateUser(values: { name: string; email: string; password?: string; role: string; id?: string }): Promise<void> {
+  async function handleCreateUser(values: { name: string; email: string; password?: string; role: string; _id?: string }): Promise<void> {
     try {
-      if (values.id) {
+      if (values._id) {
         const API_BASE_URL = process.env.NEXT_PUBLIC_URL;
-        await axios.put(`${API_BASE_URL}/api/users/${values.id}`, values);
+        await axios.put(`${API_BASE_URL}/api/users/${values._id}`, values);
         Swal.fire({
           icon: "success",
           title: "User Updated",
@@ -74,7 +74,7 @@ const UserList = ({ users, onDelete }: UserListProps) => {
       />
       <section className="mx-10 p-2">
         <div className="mx-2 my-5 flex justify-between items-center mt-5">
-          <div className="flex items-center space-x-2 text-lg font-semibold">
+          <div className="flex items-center space-x-2 text-lg font-semibold text-blue-800">
             <Receipt />
             <span>All Team Members</span>
           </div>
@@ -105,16 +105,16 @@ const UserList = ({ users, onDelete }: UserListProps) => {
             </TableHead>
             <TableBody>
               {users.map((user) => (
-                <TableRow key={user.id}>
-                  <TableCell>{user.id}</TableCell>
+                <TableRow key={user._id}>
+                  <TableCell>{user._id}</TableCell>
                   <TableCell>{user.name}</TableCell>
                   <TableCell>{user.email}</TableCell>
                   <TableCell>{user.role}</TableCell>
                   <TableCell>
-                    <Button variant="contained" color="primary" size="small" startIcon={<Edit />} onClick={() => handleOpenEditDialog(user)}>
+                    <Button variant="contained" color="primary" size="small" startIcon={<Edit />} onClick={() => handleOpenEditDialog(user)} className="mr-2">
                       Edit
                     </Button>
-                    <Button variant="contained" color="secondary" size="small" onClick={() => onDelete(user.id)}>
+                    <Button variant="contained" color="secondary" size="small" onClick={() => onDelete(user._id)} className="ml-2">
                       Delete
                     </Button>
                   </TableCell>

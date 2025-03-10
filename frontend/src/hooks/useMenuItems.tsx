@@ -34,15 +34,15 @@ const useMenu = () => {
   const role = user?.role;
 
   const adminMenu = [
-    {
-      key: '1',
-      title: 'Dashboard',
-      icon: <Dashboard />,
-      route: '/',
-    },
+    // {
+    //   key: '1',
+    //   title: 'Dashboard',
+    //   icon: <Dashboard />,
+    //   route: '/',
+    // },
     {
       key: '6',
-      title: 'Team Managment',
+      title: 'Team Management',
       icon: <PeopleIcon />,
       submenus: [
         // {

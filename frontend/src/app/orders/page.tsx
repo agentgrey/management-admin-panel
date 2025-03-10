@@ -9,10 +9,12 @@ import axios from "axios";
 
 type Order = {
   id: string;
+  customerName: string;
+  customerEmail: string;
   productName: string;
   quantity: number;
   price: number;
-  status: "Shipped" | "Delivered" | "Pending" | "Cancelled";
+  status: "pending" | "delivered" | "cancelled";
   orderDate: string;
 };
 
@@ -50,10 +52,7 @@ const Orders = () => {
           <Breadcrumbs links={links} />
         </div>
 
-        <Typography variant="h4" fontWeight="bold" textAlign="center" mb={3}>
-          My Orders
-        </Typography>
-
+        <h1 className="text-3xl font-bold mb-6 text-blue-800">Orders</h1>
         <div className="flex-1 flex">
           <div className="w-[95%] mx-auto mt-4 pb-10 bg-white shadow-xl rounded-md p-5">
             {fetchedOrders.map((order) => (

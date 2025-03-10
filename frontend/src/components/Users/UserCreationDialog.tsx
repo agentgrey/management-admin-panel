@@ -20,7 +20,7 @@ import Swal from "sweetalert2";
 const roles = [ROLE.ADMIN, ROLE.EMPLOYEE, ROLE.MANAGER];
 
 interface User {
-  id: string;
+  _id: string;
   name: string;
   email: string;
   role: string;
@@ -70,7 +70,7 @@ const UserCreationDialog: React.FC<UserCreationDialogProps> = ({
         let response;
 
         if (isEditing) {
-          response = await axios.put(`${API_BASE_URL}/${initialData?.id}`, values, authConfig);
+          response = await axios.put(`${API_BASE_URL}/${initialData?._id}`, values, authConfig);
           Swal.fire({
             icon: "success",
             title: "User Updated",

@@ -47,7 +47,7 @@ export default function AccountMenu() {
         <div className="flex gap-6 items-center">
           
           
-          <Link href={"/notification"}>
+          {/* <Link href={"/notification"}>
             <Tooltip title="Notifications">
               <Badge
                 badgeContent={10}
@@ -61,10 +61,10 @@ export default function AccountMenu() {
                   />
                 </p>
               </Badge>
-            </Tooltip>
-          </Link>
+          vscode-file://vscode-app/c:/Users/HP/Downloads/VSCode-win32-x64-1.81.1/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html  </Tooltip>
+          </Link> */}
         </div>
-        <Tooltip >
+        <Tooltip title="">
           <div className="flex w-fit  items-center justify-start gap-2 overflow-hidden bg-white">
             <div
               onClick={handleClick}

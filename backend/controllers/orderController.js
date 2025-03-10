@@ -1,4 +1,4 @@
-const Order = require('../models/Order');
+const Order = require('../models/order');
 
 exports.placeOrder = async (req, res) => {
   try {
@@ -31,7 +31,17 @@ exports.cancelOrder = async (req, res) => {
 
 exports.getOrders = async (req, res) => {
     try {
-        const orders = await Order.find().populate('customerName product');
+        const orderDetails = await Order.find().populate('customerName product');
+        let orders = orderDetails.map(order => ({
+          id: order._id,
+          customerName: order.customerName ? order.customerName.name : 'Unknown Customer',
+          customerEmail: order.customerName ? order.customerName.email : 'Unknown Customer',
+          productName: order.product ? order.product.name : 'Unknown Product',
+          quantity: 1,
+          price: order.product ? order.product.price : 0, 
+          status: order.orderStatus,
+          orderDate: order.createdAt.toISOString() 
+        }));
         res.json(orders);
     } catch (error) {
         console.error(error.message);
