@@ -89,7 +89,7 @@ const useMenu = () => {
         {
           key: '8.2',
           route: '/orders',
-          title: 'View Orderss',
+          title: 'View Orders',
           icon: <ReceiptLongIcon /> ,
         },
         // {

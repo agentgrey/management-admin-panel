@@ -34,7 +34,8 @@ const UserList = ({ users, onDelete }: UserListProps) => {
   async function handleCreateUser(values: { name: string; email: string; password?: string; role: string; id?: string }): Promise<void> {
     try {
       if (values.id) {
-        await axios.put(`/api/users/${values.id}`, values);
+        const API_BASE_URL = process.env.NEXT_PUBLIC_URL;
+        await axios.put(`${API_BASE_URL}/api/users/${values.id}`, values);
         Swal.fire({
           icon: "success",
           title: "User Updated",
@@ -42,7 +43,8 @@ const UserList = ({ users, onDelete }: UserListProps) => {
           confirmButtonColor: "#4CAF50",
         });
       } else {
-        await axios.post("/api/users", values);
+        const API_BASE_URL = process.env.NEXT_PUBLIC_URL;
+        await axios.post(`${API_BASE_URL}/api/users`, values);
         Swal.fire({
           icon: "success",
           title: "User Created",

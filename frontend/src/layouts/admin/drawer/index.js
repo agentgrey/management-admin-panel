@@ -29,7 +29,6 @@ const Drawer = ({ open, onToggle }) => {
   const [selectedSubMenu, setSelectedSubMenu] = useState("");
   const [selectedSubSubMenu, setSelectedSubSubMenu] = useState("");
   const MenuItems = useMenuItems();
-  const logo = process.env.NEXT_PUBLIC_LOGO;
   const { logout } = useAuth();
   const url = process.env.NEXT_PUBLIC_URL;
 
@@ -64,14 +63,15 @@ const Drawer = ({ open, onToggle }) => {
         <CustomDrawer variant="permanent" open={open}>
           <CustomDrawerHeader className="flex flex-col items-center mt-3">
             <div className="flex h-16 w-full items-center justify-center gap-4">
-              <img
+              {/* <img
                 src={logo}
                 alt="Logo"
                 loading="lazy"
                 width={160}
                 height={40}
                 className={`${open ? "h-12 w-[60%] object-contain" : "hidden"}`}
-              />
+              /> */}
+              <p>Admin Panel</p>
               <IconButton onClick={onToggle}>
                 {open ? <ChevronLeft /> : <Menu />}
               </IconButton>

@@ -8,7 +8,6 @@ const ProductsPage: React.FC = () => {
 
   const links = [
     { id: 1, page: "Product Dashboard", link: "/products" },
-    // { id: 2, page: "Promissory-Note", link: "/promissory-note" },
   ];
   return (
     <MainLayout title="All Products">
