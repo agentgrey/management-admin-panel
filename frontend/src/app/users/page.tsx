@@ -9,7 +9,7 @@ import Breadcrumbs from "@/core/Breadcrum";
 import { useAuth } from "@/context/AuthContext";
 
 type User = {
-  id: string;
+  _id: string;
   name: string;
   email: string;
   role: string;
@@ -48,8 +48,8 @@ const UsersPage = () => {
   }, []);
 
   // Function to delete a user locally
-  const deleteUser = (id: string) => {
-    setUsers(users.filter((user) => user.id !== id));
+  const deleteUser = (_id: string) => {
+    setUsers(users.filter((user) => user._id !== _id));
   };
   console.log("users", users);
   const links = [{ id: 1, page: "Users Dashboard", link: "/users" }];

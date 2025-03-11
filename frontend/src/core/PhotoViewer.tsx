@@ -1,6 +1,13 @@
 import { DEFAULTIMG } from "../assets/home";
 
-const PhotoViewer = ({ photo, name = "Credore", size, className }) => {
+type PhotoViewerProps = {
+  photo?: string;
+  name?: string;
+  size?: string;
+  className?: string;
+};
+
+const PhotoViewer: React.FC<PhotoViewerProps> = ({ photo, name = "Credore", size, className }) => {
   return (
     <div
       style={{

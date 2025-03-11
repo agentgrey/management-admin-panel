@@ -1,9 +1,20 @@
+"use client";
+
 import { Home } from "@mui/icons-material";
 import Link from "next/link";
+import React from 'react';
 
+interface BreadcrumbLink {
+  id: number;
+  link: string;
+  page: string;
+}
 
+interface BreadcrumbsProps {
+  links: BreadcrumbLink[];
+}
 
-const Breadcrumbs = ({ links }) => {
+const Breadcrumbs = ({ links }: BreadcrumbsProps) => {
   return (
     <div className="py-2 flex md:gap-4 gap-1 items-center tracking-wide flex-wrap">
       <Link href="/">
