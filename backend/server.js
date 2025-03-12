@@ -19,9 +19,8 @@ app.use('/api/users', require('./routes/userRoute'));
 app.use('/api/products', require('./routes/productRoute'));
 app.use('/api/orders', require('./routes/orderRoute'));
 
-// app.get('/', (req, res) => res.send('API Running'));
-
-const nextApp = next({ dev: false, dir: path.join(__dirname, 'build') });
+if (process.env.NODE_ENV === 'production') {
+  const nextApp = next({ dev: false, dir: path.join(__dirname, 'build') });
   const handle = nextApp.getRequestHandler();
 
   nextApp.prepare().then(() => {
@@ -33,6 +32,8 @@ const nextApp = next({ dev: false, dir: path.join(__dirname, 'build') });
 
     app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
   });
-
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+} else {
+  // Development mode fallback.
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+}
