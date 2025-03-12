@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "sh build.sh",
+    "build": "next build && mv .next ../backend/build || xcopy .next ../backend/build /E /I /Y",
     "start": "next start",
     "lint": "next lint"
   },
