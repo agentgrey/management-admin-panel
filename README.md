@@ -2,6 +2,10 @@
 
 **Yo, what's up?** 👋 This is the spot for the code that powers our super slick Role-Based Management Admin Panel. We're talking total control, clean UI, and all the features you need to manage your team like a boss.
 
+For admin access use [
+email: admin@gmail.com
+password: admin123 ]
+
 ## ⚡️ Quick Start
 
 **Ready to dive in? Here's the lowdown:**
